@@ -5,8 +5,6 @@ import com.mercadona.test.model.EanResponse;
 import com.mercadona.test.utils.exceptions.CauseException;
 import com.mercadona.test.utils.mapper.EanMapper;
 
-import java.math.BigDecimal;
-
 public class EanHandler {
 
     public Ean ean;
@@ -24,7 +22,7 @@ public class EanHandler {
     }
 
     private void checkDestiny() throws CauseException {
-        if(isValidDestiny()) {
+        if(isInvalidDestiny()) {
             throw new CauseException("The final destiny not should be 7.");
         }
     }
@@ -41,8 +39,8 @@ public class EanHandler {
         }
     }
 
-    private boolean isValidDestiny() {
-        return ean.getEanNumber().equals("7");
+    private boolean isInvalidDestiny() {
+        return splitAddress().equals("7");
     }
 
     private boolean onlyNumbers() {
