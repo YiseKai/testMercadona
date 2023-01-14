@@ -8,9 +8,9 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class Ean {
-    public BigDecimal ean;
+    private BigDecimal eanNumber;
 
     public Ean(BigDecimal ean) {
-        this.ean = ean;
+        this.eanNumber = ean;
     }
 }

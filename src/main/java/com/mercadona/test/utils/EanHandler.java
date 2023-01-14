@@ -24,7 +24,7 @@ public class EanHandler {
     }
 
     private void checkDestiny() throws CauseException {
-        if(!isValidDestiny()) {
+        if(isValidDestiny()) {
             throw new CauseException("The final destiny not should be 7.");
         }
     }
@@ -42,26 +42,26 @@ public class EanHandler {
     }
 
     private boolean isValidDestiny() {
-        return ean.equals(new BigDecimal(7));
+        return ean.getEanNumber().equals(new BigDecimal(7));
     }
 
     private boolean onlyNumbers() {
-        return String.valueOf(ean).matches("[0-9]+");
+        return String.valueOf(ean.getEanNumber()).matches("[0-9]+");
     }
 
     private boolean validLength() {
-        return String.valueOf(ean).length() == 13;
+        return String.valueOf(ean.getEanNumber()).length() == 13;
     }
 
     private BigDecimal splitProvider() {
-        return new BigDecimal(String.valueOf(ean.ean).substring(0, 7));
+        return new BigDecimal(String.valueOf(ean.getEanNumber()).substring(0, 7));
     }
 
     private BigDecimal splitProductCode() {
-        return new BigDecimal(String.valueOf(ean.ean).substring(7, 12));
+        return new BigDecimal(String.valueOf(ean.getEanNumber()).substring(7, 12));
     }
 
     private BigDecimal splitAddress() {
-        return new BigDecimal(String.valueOf(ean.ean).substring(12));
+        return new BigDecimal(String.valueOf(ean.getEanNumber()).substring(12));
     }
 }
