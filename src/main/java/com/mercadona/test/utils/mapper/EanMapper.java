@@ -6,22 +6,22 @@ import java.math.BigDecimal;
 
 public class EanMapper {
 
-    static final String MERCADONA_SPAIN = "Tiendas Mercadona España";
-    static final String MERCADONA_PORTUGAL = "Tiendas Mercadona Portugal";
-    static final String ALMACEN = "Almacenes";
-    static final String MERCADONA_OFICINA = "Oficinas Mercadona";
-    static final String COLMENAS = "Colmenas";
-    static final int MERCADONA_PROVIDER = 8437008;
-    static final String HACENDADO = "Hacendado";
-    static final String OTHER_PROVIDER = "Otro proveedor";
+    public static final String MERCADONA_SPAIN = "Tiendas Mercadona España";
+    public static final String MERCADONA_PORTUGAL = "Tiendas Mercadona Portugal";
+    public static final String ALMACEN = "Almacenes";
+    public static final String MERCADONA_OFICINA = "Oficinas Mercadona";
+    public static final String COLMENAS = "Colmenas";
+    public static final String MERCADONA_PROVIDER = "8437008";
+    public static final String HACENDADO = "Hacendado";
+    public static final String OTHER_PROVIDER = "Otro proveedor";
 
-    public EanResponse mapToEanResponse(BigDecimal provider, BigDecimal product, BigDecimal address) {
-        return new EanResponse(mapToProvider(provider), mapToProduct(product), mapToDestiny(address));
+    public EanResponse mapToEanResponse(String provider, String product, String address) {
+        return new EanResponse(mapToProvider(provider), product, mapToDestiny(address));
     }
 
-    private String mapToDestiny(BigDecimal address) {
+    private String mapToDestiny(String address) {
         String result = "";
-        switch (String.valueOf(address)) {
+        switch (address) {
             case "1": case "2": case "3": case "4": case "5": result = MERCADONA_SPAIN; break;
             case "6": result = MERCADONA_PORTUGAL; break;
             case "8": result = ALMACEN; break;
@@ -31,15 +31,11 @@ public class EanMapper {
         return result;
     }
 
-    private String mapToProvider(BigDecimal provider) {
-        if(provider.equals(new BigDecimal(MERCADONA_PROVIDER))) {
+    private String mapToProvider(String provider) {
+        if(provider.equals(MERCADONA_PROVIDER)) {
             return HACENDADO;
         } else {
             return OTHER_PROVIDER;
         }
-    }
-
-    private String mapToProduct(BigDecimal productCode) {
-        return String.valueOf(productCode);
     }
 }

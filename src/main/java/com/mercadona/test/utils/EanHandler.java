@@ -42,26 +42,26 @@ public class EanHandler {
     }
 
     private boolean isValidDestiny() {
-        return ean.getEanNumber().equals(new BigDecimal(7));
+        return ean.getEanNumber().equals("7");
     }
 
     private boolean onlyNumbers() {
-        return String.valueOf(ean.getEanNumber()).matches("[0-9]+");
+        return ean.getEanNumber().matches("[0-9]+");
     }
 
     private boolean validLength() {
-        return String.valueOf(ean.getEanNumber()).length() == 13;
+        return ean.getEanNumber().length() == 13;
     }
 
-    private BigDecimal splitProvider() {
-        return new BigDecimal(String.valueOf(ean.getEanNumber()).substring(0, 7));
+    private String splitProvider() {
+        return ean.getEanNumber().substring(0, 7);
     }
 
-    private BigDecimal splitProductCode() {
-        return new BigDecimal(String.valueOf(ean.getEanNumber()).substring(7, 12));
+    private String splitProductCode() {
+        return ean.getEanNumber().substring(7, 12);
     }
 
-    private BigDecimal splitAddress() {
-        return new BigDecimal(String.valueOf(ean.getEanNumber()).substring(12));
+    private String splitAddress() {
+        return ean.getEanNumber().substring(12);
     }
 }

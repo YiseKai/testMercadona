@@ -3,14 +3,12 @@ package com.mercadona.test.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
-
 @Getter
 @Setter
 public class Ean {
-    private BigDecimal eanNumber;
+    private String eanNumber;
 
-    public Ean(BigDecimal ean) {
+    public Ean(String ean) {
         this.eanNumber = ean;
     }
 }
