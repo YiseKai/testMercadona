@@ -12,7 +12,7 @@ Para poder iniciar el servicio bastará con ejecutar la clase TestApplication.ja
 # Ejemplo de uso
 
 Mercadona ha facilitado en su documento dos EAN de productos. Probemos con 8437008459059.
-Para ello, abrimos la seccion GET /mercadona/{ean} la cual nos ofrece información sobre la composición del EAN y hacemos clic en `Try it out`.
+Para ello, necesitamos correr el servicio y abrir la direccion http://localhost:8080/swagger-ui/index.html y abrimos la seccion GET /mercadona/{ean} la cual nos ofrece información sobre la composición del EAN y hacemos clic en `Try it out`.
 
 <img width="1422" alt="image" src="https://user-images.githubusercontent.com/11297328/212534381-35ee59c9-5c3c-4a3c-83d1-6c08d9cc03ae.png">
 
