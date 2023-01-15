@@ -20,8 +20,4 @@ public class Ean {
     public Ean(String ean) {
         this.eanNumber = ean;
     }
-
-    public Ean() {
-        //Nothing to do
-    }
 }
